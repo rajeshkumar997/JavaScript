@@ -1617,111 +1617,26 @@
 
 
 
-// function obj(){
-//     let x =10;
-//     return function(){
-//         console.log(x);
-//     }
-// }
-
-
-// Reverse a given string by words. Without using inbuilt functions like split, reverse, join.
-
-// Let str = ?Hello how are you;
-
-// Output should be ?you are how hello?;
-
-// Interviewer
-// 36m ago
-// Write a javascript solution to find 3 rd largest number from a given array.
-
-// let arr = [1,2,3,4,5,789,656,454,345,356789,43232,34,545,656,345,789,56434,656,789,5434]
-
-// Without using in-built js funtions
-
-// Rajesh Kumar
-// 17m ago
-// let arr = [1, 2, 3, 4, 5, 789, 656, 454, 345, 356789, 43232, 34, 545, 656, 345, 789, 56434, 656, 789, 5434];
-
-// function thirdLargestElement(arr) {
-
-// let first = arr[0];
-
-// for (let i = 0; i < arr.length; i++) {
-
-// if (arr[i] > first) {
-
-// first = arr[i];
-
-// }
-
-// }
-
-// let second = Number.MIN_VALUE;
-
-// for (let i = 0; i < arr.length; i++) {
-
-// if (arr[i] > second && arr[i] < first) {
-
-// second = arr[i];
-
-// }
-
-// }
-
-// let third = Number.MIN_VALUE;
-
-// for (let i = 0; i < arr.length; i++) {
-
-// if (arr[i] > third && arr[i] < second) {
-
-// third = arr[i];
-
-// }
-
-// }
-
-// }
-
-// console.log(thirdLargestElement(arr));
-
-// Interviewer
-// 15m ago
-// Input > html
-
-// parent
-
-// component
-
-// button in parent component.
-
-// you need to see data to child component.
-
-// make it reverse
-
-// and send it back to parent component
-
-// and display the reversed string
-
-// Rajesh Kumar
-// just now
-// function obj(){
-
-// let x =10;
-
-// return function(){
-
-// console.log(x);
-
-// }
-
-// }
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /////////// Rest Operator & spread Operator /////////////////////
+
+////// Rest Operator
+
+function add(a, b, c, d, ...rest) {
+    console.log(rest);
+    return a + b + c + d;
+}
+const ans = add(2, 3, 5, 4, 1, 2, 3, 4, 5);
+console.log(ans);
+
+////////// Spread Operator
+
+var names = ["rajesh", "anuj", "atul"];
+function getName(n1, n2, n3) {
+    console.log(n1, n2, n3);
+}
+getName(names[0], names[1], names[2])
+getName(...names);
