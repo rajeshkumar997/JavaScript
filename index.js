@@ -1688,33 +1688,68 @@
 // console.log(promise);
 
 
-let p1 = new Promise((resolve, reject) => {
-    console.log("Promise is prnding");
-    setTimeout(() => {
-        // console.log("i am a promise and i am resolved");
-        resolve(true)
-    }, 5000);
-})
-let p2 = new Promise((resolve, reject) => {
-    console.log("Promise is prnding");
-    setTimeout(() => {
-        // console.log("i am a promise and i am rejexted");
-        reject(new Error("i am an error"))
-    }, 5000);
-})
 
-//to get the value
-p1.then((value) => {
-    console.log(value);
-})
-
-// to catch the error
-// p2.catch((error) => {
-//     console.log("some error occered in p2");
+// let p1 = new Promise((resolve, reject) => {
+//     console.log("Promise is prnding");
+//     setTimeout(() => {
+//         // console.log("i am a promise and i am resolved");
+//         resolve(true)
+//     }, 5000);
+// })
+// let p2 = new Promise((resolve, reject) => {
+//     console.log("Promise is prnding");
+//     setTimeout(() => {
+//         // console.log("i am a promise and i am rejexted");
+//         reject(new Error("i am an error"))
+//     }, 5000);
 // })
 
-p2.then((value) => {
-    console.log(value);
-}, (error) => {
-    console.log(error);
-})
+// //to get the value
+// p1.then((value) => {
+//     console.log(value);
+// })
+
+// // to catch the error
+// // p2.catch((error) => {
+// //     console.log("some error occered in p2");
+// // })
+
+// p2.then((value) => {
+//     console.log(value);
+// }, (error) => {
+//     console.log(error);
+// })
+
+
+
+//////////// Callback    ////////////
+
+//A callback function is a function passed into anoter function as an argument which 
+// i then invoked inside the outer function to complete an action
+
+// Synchronous Programming
+
+// let a = prompt("What is your name");
+// let b = prompt("what is your age");
+// let c = prompt("what is your favorite color");
+// console.log("my name is " + a + " and my age is " + b + " and my favorite color is " + c);
+
+// Asynchronous Programming
+
+// console.log("start");
+// setTimeout(() => {
+//     console.log("I am settime out");
+// }, 3000);
+// console.log("end");
+
+
+const person1 = (friend, callfrnd) => {
+    console.log(`i am busy right now i am talking to ${friend}. i will call you back`);
+    callfrnd();
+}
+
+const person2 = () => {
+    console.log(`hey whats up`);
+}
+
+person1("Rajesh", person2);
