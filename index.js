@@ -1625,18 +1625,51 @@
 
 ////// Rest Operator
 
-function add(a, b, c, d, ...rest) {
-    console.log(rest);
-    return a + b + c + d;
-}
-const ans = add(2, 3, 5, 4, 1, 2, 3, 4, 5);
-console.log(ans);
+// function add(a, b, c, d, ...rest) {
+//     console.log(rest);
+//     return a + b + c + d;
+// }
+// const ans = add(2, 3, 5, 4, 1, 2, 3, 4, 5);
+// console.log(ans);
 
 ////////// Spread Operator
 
-var names = ["rajesh", "anuj", "atul"];
-function getName(n1, n2, n3) {
-    console.log(n1, n2, n3);
+// var names = ["rajesh", "anuj", "atul"];
+// function getName(n1, n2, n3) {
+//     console.log(n1, n2, n3);
+// }
+// getName(names[0], names[1], names[2])
+// getName(...names);
+
+
+////////// Async, Await Promises, Callbacks   ////////////////////
+
+//////Async, Await
+
+async function data() {
+    let delhiWeather = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("21 deg");
+        }, 2000);
+    })
+    let japanWeather = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("25 deg");
+        }, 4000);
+    })
+    // delhiWeather.then(alert)
+    // japanWeather.then(alert)
+
+    let delhi = await delhiWeather;
+    let japan = await japanWeather;
+    return [delhi, japan];
 }
-getName(names[0], names[1], names[2])
-getName(...names);
+console.log("welcome");
+let a = data();
+a.then((val) => {
+    console.log(val);
+})
+
+
+///////  Promises
+
