@@ -1646,30 +1646,75 @@
 
 //////Async, Await
 
-async function data() {
-    let delhiWeather = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("21 deg");
-        }, 2000);
-    })
-    let japanWeather = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("25 deg");
-        }, 4000);
-    })
-    // delhiWeather.then(alert)
-    // japanWeather.then(alert)
+// async function data() {
+//     let delhiWeather = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("21 deg");
+//         }, 2000);
+//     })
+//     let japanWeather = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("25 deg");
+//         }, 4000);
+//     })
+//     // delhiWeather.then(alert)
+//     // japanWeather.then(alert)
 
-    let delhi = await delhiWeather;
-    let japan = await japanWeather;
-    return [delhi, japan];
-}
-console.log("welcome");
-let a = data();
-a.then((val) => {
-    console.log(val);
-})
+//     let delhi = await delhiWeather;
+//     let japan = await japanWeather;
+//     return [delhi, japan];
+// }
+// console.log("welcome");
+// let a = data();
+// a.then((val) => {
+//     console.log(val);
+// })
 
 
 ///////  Promises
 
+
+// let promise = new Promise((resolve, reject) => {
+//     alert("hello")
+//     resolve(56)
+// })
+
+// console.log("hello one");
+// setTimeout(() => {
+//     console.log("hello two in 2 seconds");
+// }, 2000);
+
+// console.log("my name is" + " hello three");
+// console.log(promise);
+
+
+let p1 = new Promise((resolve, reject) => {
+    console.log("Promise is prnding");
+    setTimeout(() => {
+        // console.log("i am a promise and i am resolved");
+        resolve(true)
+    }, 5000);
+})
+let p2 = new Promise((resolve, reject) => {
+    console.log("Promise is prnding");
+    setTimeout(() => {
+        // console.log("i am a promise and i am rejexted");
+        reject(new Error("i am an error"))
+    }, 5000);
+})
+
+//to get the value
+p1.then((value) => {
+    console.log(value);
+})
+
+// to catch the error
+// p2.catch((error) => {
+//     console.log("some error occered in p2");
+// })
+
+p2.then((value) => {
+    console.log(value);
+}, (error) => {
+    console.log(error);
+})
