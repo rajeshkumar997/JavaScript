@@ -1743,13 +1743,60 @@
 // console.log("end");
 
 
-const person1 = (friend, callfrnd) => {
-    console.log(`i am busy right now i am talking to ${friend}. i will call you back`);
-    callfrnd();
-}
+// const person1 = (friend, callfrnd) => {
+//     console.log(`i am busy right now i am talking to ${friend}. i will call you back`);
+//     callfrnd();
+// }
 
-const person2 = () => {
-    console.log(`hey whats up`);
-}
+// const person2 = () => {
+//     console.log(`hey whats up`);
+// }
 
-person1("Rajesh", person2);
+// person1("Rajesh", person2);
+
+
+
+///////////////////    Closure    ///////////////////////////
+
+// A Closure is the combination of a functions and the lexical environment within which that function was decleared.
+
+// Closure in action that is inner function can have access to the outer function variables/ parameters as well as all the global variables.
+
+
+// var sum = function (a) {
+//     console.log(a);
+//     var c = 20;
+//     return function (b) {
+//         return a + b + c;
+//     }
+// }
+// var store = sum(2);
+// console.log(store(200));
+
+
+// var sum = function (a, b, c) {
+//     return {
+//         getSumTwo: function () {
+//             return a + b;
+//         },
+//         getSumThree: function () {
+//             return a + b + c;
+//         }
+//     }
+
+// }
+// var store = sum(5, 6, 9);
+// console.log(store.getSumTwo());
+// console.log(store.getSumThree());
+
+
+
+const outerFun = (a) => {
+    let b = 10;
+    const innerFun = () => {
+        let sum = a + b;
+        console.log(`the sum of two variables is = ${sum}`);
+    }
+    innerFun();
+}
+outerFun(20);
