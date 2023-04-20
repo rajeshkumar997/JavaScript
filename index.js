@@ -1569,13 +1569,6 @@
 
 
 
-
-
-
-
-
-
-
 // ///////////////////////////////////////////////////////////////////////////
 
 
@@ -1724,7 +1717,7 @@
 
 //////////// Callback    ////////////
 
-//A callback function is a function passed into anoter function as an argument which 
+//A callback function is a function passed into anoter function as an argument which
 // i then invoked inside the outer function to complete an action
 
 // Synchronous Programming
@@ -1791,12 +1784,45 @@
 
 
 
-const outerFun = (a) => {
-    let b = 10;
-    const innerFun = () => {
-        let sum = a + b;
-        console.log(`the sum of two variables is = ${sum}`);
+// const outerFun = (a) => {
+//     let b = 10;
+//     const innerFun = () => {
+//         let sum = a + b;
+//         console.log(`the sum of two variables is = ${sum}`);
+//     }
+//     innerFun();
+// }
+// outerFun(20);
+
+
+
+///////////////////////////////       Call , Apply & Bind        ///////////////////////////////////////
+
+// Call
+
+let userDetail = {
+    name: "rajesh",
+    age: 25,
+    profession: "frontend developer",
+    getDetails: function (state, country) {
+        console.log(this.name + " " + state + " " + country);
     }
-    innerFun();
 }
-outerFun(20);
+userDetail.getDetails("Delhi", "India");
+
+let userDetail2 = {
+    name: "Anuj",
+    age: 26,
+    profession: "frontend developer",
+}
+
+userDetail.getDetails.call(userDetail2, "Delhi", "India");
+
+//  Apply
+
+userDetail.getDetails.apply(userDetail2, ["Delhi", "India"]);
+
+// Bind
+
+let newFun = userDetail.getDetails.bind(userDetail2, "Delhi", "India");
+newFun();
