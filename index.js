@@ -1847,11 +1847,30 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
 
 //// forEach   /////
 
-for (let i = 0; i < companies.length; i++) {
-    console.log(companies[i]);
-}
+// for (let i = 0; i < companies.length; i++) {
+//     console.log(companies[i]);
+// }
 
-companies.forEach((company, index) => {
-    console.log(company);
-    // console.log(company.name);
+// companies.forEach((company, index) => {
+//     console.log(company);
+//     // console.log(company.name);
+// })
+
+
+/////         filter        ////////
+
+// for (let i = 0; i < ages.length; i++) {
+//     if (ages[i] >= 20) {
+//         console.log(ages[i]);
+//     }
+// }
+
+const finalAge = ages.filter((age) => age > 20)
+console.log(finalAge);
+
+const sb = companies.filter((company) => {
+    if (company.category === "service based") {
+        return true;
+    }
 })
+console.log(sb);
