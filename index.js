@@ -1800,29 +1800,58 @@
 
 // Call
 
-let userDetail = {
-    name: "rajesh",
-    age: 25,
-    profession: "frontend developer",
-    getDetails: function (state, country) {
-        console.log(this.name + " " + state + " " + country);
-    }
+// let userDetail = {
+//     name: "rajesh",
+//     age: 25,
+//     profession: "frontend developer",
+//     getDetails: function (state, country) {
+//         console.log(this.name + " " + state + " " + country);
+//     }
+// }
+// userDetail.getDetails("Delhi", "India");
+
+// let userDetail2 = {
+//     name: "Anuj",
+//     age: 26,
+//     profession: "frontend developer",
+// }
+
+// userDetail.getDetails.call(userDetail2, "Delhi", "India");
+
+// //  Apply
+
+// userDetail.getDetails.apply(userDetail2, ["Delhi", "India"]);
+
+// // Bind
+
+// let newFun = userDetail.getDetails.bind(userDetail2, "Delhi", "India");
+// newFun();
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+//////// Map, Reduce and filter functions in javscript    ////////////
+
+// higher order functions  -  forEach , filter, map, sort, reduce
+
+
+const companies = [
+    { name: "google", category: "product based", start: 1961, end: 2004 },
+    { name: "amazon", category: "product based", start: 1992, end: 2008 },
+    { name: "paytm", category: "service based", start: 1999, end: 2010 },
+    { name: "mindtree", category: "service based", start: 1989, end: 2010 },
+];
+
+const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
+
+//// forEach   /////
+
+for (let i = 0; i < companies.length; i++) {
+    console.log(companies[i]);
 }
-userDetail.getDetails("Delhi", "India");
 
-let userDetail2 = {
-    name: "Anuj",
-    age: 26,
-    profession: "frontend developer",
-}
-
-userDetail.getDetails.call(userDetail2, "Delhi", "India");
-
-//  Apply
-
-userDetail.getDetails.apply(userDetail2, ["Delhi", "India"]);
-
-// Bind
-
-let newFun = userDetail.getDetails.bind(userDetail2, "Delhi", "India");
-newFun();
+companies.forEach((company, index) => {
+    console.log(company);
+    // console.log(company.name);
+})
