@@ -1878,22 +1878,36 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
 
 ///////////            map function    //////////
 
-const names = companies.map((company, index) => {
-    return `${company.name}`
-})
-console.log(names);
+// const names = companies.map((company, index) => {
+//     return `${company.name}`
+// })
+// console.log(names);
 
 
 ///////       sort         ////////////
 
-const age = ages.sort((a, b) => (a - b))
-console.log(age);
+// const age = ages.sort((a, b) => (a - b))
+// console.log(age);
 
-const sorted = companies.sort((c1, c2) => {
-    if (c1.start > c2.start) {
-        return 1;
-    } else {
-        return -1;
-    }
-})
-console.log(sorted);
+// const sorted = companies.sort((c1, c2) => {
+//     if (c1.start > c2.start) {
+//         return 1;
+//     } else {
+//         return -1;
+//     }
+// })
+// console.log(sorted);
+
+
+/////////////          reduce     ///////////
+
+let total = 0;
+for (let i = 0; i < ages.length; i++) {
+    total += ages[i];
+}
+console.log(total);
+
+const sum = ages.reduce((total, age) => {
+    return total + age;
+}, 0)
+console.log(sum);
