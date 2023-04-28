@@ -1865,12 +1865,35 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
 //     }
 // }
 
-const finalAge = ages.filter((age) => age > 20)
-console.log(finalAge);
+// const finalAge = ages.filter((age) => age > 20)
+// console.log(finalAge);
 
-const sb = companies.filter((company) => {
-    if (company.category === "service based") {
-        return true;
+// const sb = companies.filter((company) => {
+//     if (company.category === "service based") {
+//         return true;
+//     }
+// })
+// console.log(sb);
+
+
+///////////            map function    //////////
+
+const names = companies.map((company, index) => {
+    return `${company.name}`
+})
+console.log(names);
+
+
+///////       sort         ////////////
+
+const age = ages.sort((a, b) => (a - b))
+console.log(age);
+
+const sorted = companies.sort((c1, c2) => {
+    if (c1.start > c2.start) {
+        return 1;
+    } else {
+        return -1;
     }
 })
-console.log(sb);
+console.log(sorted);
