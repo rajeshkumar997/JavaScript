@@ -1836,14 +1836,14 @@
 // higher order functions  -  forEach , filter, map, sort, reduce
 
 
-const companies = [
-    { name: "google", category: "product based", start: 1961, end: 2004 },
-    { name: "amazon", category: "product based", start: 1992, end: 2008 },
-    { name: "paytm", category: "service based", start: 1999, end: 2010 },
-    { name: "mindtree", category: "service based", start: 1989, end: 2010 },
-];
+// const companies = [
+//     { name: "google", category: "product based", start: 1961, end: 2004 },
+//     { name: "amazon", category: "product based", start: 1992, end: 2008 },
+//     { name: "paytm", category: "service based", start: 1999, end: 2010 },
+//     { name: "mindtree", category: "service based", start: 1989, end: 2010 },
+// ];
 
-const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
+// const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
 
 //// forEach   /////
 
@@ -1901,13 +1901,96 @@ const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 25, 64, 32];
 
 /////////////          reduce     ///////////
 
-let total = 0;
-for (let i = 0; i < ages.length; i++) {
-    total += ages[i];
-}
-console.log(total);
+// let total = 0;
+// for (let i = 0; i < ages.length; i++) {
+//     total += ages[i];
+// }
+// console.log(total);
 
-const sum = ages.reduce((total, age) => {
-    return total + age;
-}, 0)
-console.log(sum);
+// const sum = ages.reduce((total, age) => {
+//     return total + age;
+// }, 0)
+// console.log(sum);
+
+
+//////////////////////////////////////////////////////////////////////
+
+/////// Prototype in javascript /////////
+
+// const obj = {
+//     name: "rajesh",
+//     getName: function () {
+//         return this.name;
+//     },
+//     getRoll: function () {
+//         return this.rollNo;
+//     }
+// }
+// console.log(obj);
+// const obj2 = {
+//     rollNo: 2,
+//     __proto__: obj
+// }
+// console.log(obj2.name);
+// console.log(obj2.getRoll());
+
+// const obj3 = {
+//     class: "mca",
+//     __proto__: obj2
+// }
+// console.log(obj3);
+
+
+////////////////////////////////////////////////////////////////////////
+
+//////  Map, set, WeakSet , WeakMap /////////
+
+// set //
+
+let arr = [1, 2, 3, 4, 5];
+let obj = new Set(arr);
+obj.add(6);
+obj.delete(5);
+console.log(obj);
+
+for (let new1 of arr) {
+    console.log(new1);
+}
+
+arr.forEach((elem) => {
+    console.log(elem);
+})
+
+
+///////// Map  -> key  ->  value
+
+let myMap = new Map([["a1", "ajay"], ["a2", "vijay"]]);
+myMap.set("a2", "rajesh")
+console.log(myMap);
+
+for (let [key, value] of myMap) {
+    console.log([`keys ${key} , value ${value}`]);
+}
+
+
+////// WeakSet  ///////////
+
+// we can store only object 
+// it can not be iterable
+
+let ws = new WeakSet();
+var ob1 = { "name": "Rajesh" };
+var ob2 = {};
+ws.add(ob1);
+ws.add(ob2);
+console.log(ws.has(ob1));
+
+
+////////     WeakMap      //////
+
+let wm = new WeakMap();
+var ob3 = {};
+var ob4 = {};
+wm.set(ob3, "private");
+wm.set(ob4, "private data");
+console.log(wm);
