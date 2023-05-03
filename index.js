@@ -1945,52 +1945,64 @@
 
 //////  Map, set, WeakSet , WeakMap /////////
 
-// set //
+// // set //
 
-let arr = [1, 2, 3, 4, 5];
-let obj = new Set(arr);
-obj.add(6);
-obj.delete(5);
-console.log(obj);
+// let arr = [1, 2, 3, 4, 5];
+// let obj = new Set(arr);
+// obj.add(6);
+// obj.delete(5);
+// console.log(obj);
 
-for (let new1 of arr) {
-    console.log(new1);
+// for (let new1 of arr) {
+//     console.log(new1);
+// }
+
+// arr.forEach((elem) => {
+//     console.log(elem);
+// })
+
+
+// ///////// Map  -> key  ->  value
+
+// let myMap = new Map([["a1", "ajay"], ["a2", "vijay"]]);
+// myMap.set("a2", "rajesh")
+// console.log(myMap);
+
+// for (let [key, value] of myMap) {
+//     console.log([`keys ${key} , value ${value}`]);
+// }
+
+
+// ////// WeakSet  ///////////
+
+// // we can store only object 
+// // it can not be iterable
+
+// let ws = new WeakSet();
+// var ob1 = { "name": "Rajesh" };
+// var ob2 = {};
+// ws.add(ob1);
+// ws.add(ob2);
+// console.log(ws.has(ob1));
+
+
+// ////////     WeakMap      //////
+
+// let wm = new WeakMap();
+// var ob3 = {};
+// var ob4 = {};
+// wm.set(ob3, "private");
+// wm.set(ob4, "private data");
+// console.log(wm);
+
+
+//////////////////////////////////////////////////////////////////////
+
+//////////      Hoisting in javascript     /////////
+
+var a = 5;
+function getName() {
+    console.log("Rajesh");
 }
-
-arr.forEach((elem) => {
-    console.log(elem);
-})
-
-
-///////// Map  -> key  ->  value
-
-let myMap = new Map([["a1", "ajay"], ["a2", "vijay"]]);
-myMap.set("a2", "rajesh")
-console.log(myMap);
-
-for (let [key, value] of myMap) {
-    console.log([`keys ${key} , value ${value}`]);
-}
-
-
-////// WeakSet  ///////////
-
-// we can store only object 
-// it can not be iterable
-
-let ws = new WeakSet();
-var ob1 = { "name": "Rajesh" };
-var ob2 = {};
-ws.add(ob1);
-ws.add(ob2);
-console.log(ws.has(ob1));
-
-
-////////     WeakMap      //////
-
-let wm = new WeakMap();
-var ob3 = {};
-var ob4 = {};
-wm.set(ob3, "private");
-wm.set(ob4, "private data");
-console.log(wm);
+getName();
+console.log(a);
