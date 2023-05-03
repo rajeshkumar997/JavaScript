@@ -2000,9 +2000,46 @@
 
 //////////      Hoisting in javascript     /////////
 
-var a = 5;
-function getName() {
-    console.log("Rajesh");
-}
-getName();
-console.log(a);
+// var a = 5;
+// function getName() {
+//     console.log("Rajesh");
+// }
+// getName();
+// console.log(a);
+
+
+//////////////////////////////////////////////////////////
+
+////     Event Bubbling, Captuting and Propagation in javascript   //////
+
+////  Event Bubbling   (child to parent) ////////////
+
+var div = document.querySelector("div");
+div.addEventListener("click", () => {
+    console.log("parent");
+})
+
+var events = document.getElementById("event");
+events.addEventListener("click", () => {
+    console.log("child");
+})
+
+///// Event Capturing  (parent to child) //////
+
+var div = document.querySelector("div");
+div.addEventListener("click", () => {
+    console.log("parent");
+}, true)
+
+var events = document.getElementById("event");
+events.addEventListener("click", () => {
+    console.log("child");
+}, true)
+
+///// Stop propagation  /////
+
+var events = document.getElementById("event");
+events.addEventListener("click", (event) => {
+    event.stopPropagation();
+    console.log("child");
+}, true)
