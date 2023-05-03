@@ -2014,32 +2014,67 @@
 
 ////  Event Bubbling   (child to parent) ////////////
 
-var div = document.querySelector("div");
-div.addEventListener("click", () => {
-    console.log("parent");
-})
+// var div = document.querySelector("div");
+// div.addEventListener("click", () => {
+//     console.log("parent");
+// })
 
-var events = document.getElementById("event");
-events.addEventListener("click", () => {
-    console.log("child");
-})
+// var events = document.getElementById("event");
+// events.addEventListener("click", () => {
+//     console.log("child");
+// })
 
 ///// Event Capturing  (parent to child) //////
 
-var div = document.querySelector("div");
-div.addEventListener("click", () => {
-    console.log("parent");
-}, true)
+// var div = document.querySelector("div");
+// div.addEventListener("click", () => {
+//     console.log("parent");
+// }, true)
 
-var events = document.getElementById("event");
-events.addEventListener("click", () => {
-    console.log("child");
-}, true)
+// var events = document.getElementById("event");
+// events.addEventListener("click", () => {
+//     console.log("child");
+// }, true)
 
 ///// Stop propagation  /////
 
-var events = document.getElementById("event");
-events.addEventListener("click", (event) => {
-    event.stopPropagation();
-    console.log("child");
-}, true)
+// var events = document.getElementById("event");
+// events.addEventListener("click", (event) => {
+//     event.stopPropagation();
+//     console.log("child");
+// }, true)
+
+
+///////////////////////////////////////////////////////////
+
+///////////  Currying in javascript      /////////////
+
+function add(a, b, c) {
+    return a + b + c;
+}
+let res = add(3, 5, 6);
+console.log(res);
+
+
+function addition(a) {
+    return function (b) {
+        return function (c) {
+            return a + b + c;
+        }
+    }
+}
+let result = addition(2)(5)(4);
+console.log(result);
+
+
+userObj = {
+    name: "John",
+    age: 25,
+}
+function userInfo(obj) {
+    return function (userInfo) {
+        return obj[userInfo];
+    }
+}
+let resul = userInfo(userObj);
+console.log(resul('age'));
