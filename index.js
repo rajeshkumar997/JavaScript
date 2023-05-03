@@ -2049,32 +2049,45 @@
 
 ///////////  Currying in javascript      /////////////
 
-function add(a, b, c) {
-    return a + b + c;
-}
-let res = add(3, 5, 6);
-console.log(res);
+// function add(a, b, c) {
+//     return a + b + c;
+// }
+// let res = add(3, 5, 6);
+// console.log(res);
 
 
-function addition(a) {
+// function addition(a) {
+//     return function (b) {
+//         return function (c) {
+//             return a + b + c;
+//         }
+//     }
+// }
+// let result = addition(2)(5)(4);
+// console.log(result);
+
+
+// userObj = {
+//     name: "John",
+//     age: 25,
+// }
+// function userInfo(obj) {
+//     return function (userInfo) {
+//         return obj[userInfo];
+//     }
+// }
+// let resul = userInfo(userObj);
+// console.log(resul('age'));
+
+
+///////////////////////////////////////////////////////////////
+
+///////   Infinite Currying in javascript  /////////
+
+function add(a) {
     return function (b) {
-        return function (c) {
-            return a + b + c;
-        }
+        if (b) return add(a + b);
+        return a;
     }
 }
-let result = addition(2)(5)(4);
-console.log(result);
-
-
-userObj = {
-    name: "John",
-    age: 25,
-}
-function userInfo(obj) {
-    return function (userInfo) {
-        return obj[userInfo];
-    }
-}
-let resul = userInfo(userObj);
-console.log(resul('age'));
+console.log(add(5)(4)(3)(2)());
